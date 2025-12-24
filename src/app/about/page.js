@@ -16,6 +16,10 @@ const About = () => {
         <div>About page {name}</div>
         <button onClick={User}>Click</button>
         <Link href="/">Go to home page</Link>
+        <br />
+         <Link href="/about/aboutcollege">Go to About College</Link>
+         <br /><br />
+         <Link href="/about/aboutstudent">Go to About Student </Link>
     
      </>
     )
