@@ -1,34 +1,35 @@
 'use client'
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
 
-  // Usestate Pure Component ko Rearender Karta hai jeha jeha State use ki hui
-  //hogi wha wha ye setname update ho jayega Rearender Hoga //
+  // useRouter ka variable bana rhe hai or button mai use krhe hai 
+  const router = useRouter();
+  
+  // useRouter ka function banakar use krna //
 
-  // Variable update nhi hota hai state hi update hoti hai //
-
-  const [name, setName] = useState(' Anil') // Defalut Value Add //
-  const apple = () => {
-    setName(" Sidhu"); // Update This value //
+  const Navigate = (name)=>{
+    router.push(name)
   }
-
-  // Component kai ander component bana skte hai //
-
-  const InnerComponent = () => {
-    return <>
-      <h2>Inner Component</h2>
-    </>
-  }
-
   return (
     <>
+  <h2>Basic Routing | Make New Page</h2>
 
-      <h2>Events function and state{name}</h2>
-      <button onClick={() => apple()}>Click Me</button>
-      <InnerComponent />  // isko hum hook banakr use krte hai //
-      {InnerComponent()} // isko hum bina hook use kiya us kr skte hai //
+    {/* Link ko use kr rhe hai  */}
+  
+      <Link href="/login">Go to login page</Link>
+      <br />
+      <Link href="/about">Go to About page</Link>
+      <br /><br />
+
+      {/* useRouter ko use kr rhe hai  */}
+      <button onClick={()=>router.push('/login')}>Go to login page</button>
+      <br /><br />
+      <button onClick={()=>Navigate('/about')}>Go to about page</button>
+    
     </>
   );
 }
